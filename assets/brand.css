@@ -79,6 +79,11 @@ body:before{
   background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
 }
 .atlas-kicker{color:var(--brand-teal-bright)!important}
+:focus-visible{outline:2px solid var(--brand-teal-bright);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 @media(max-width:900px){
   .topbar-inner{height:auto}
   .brand-mark{width:38px;height:38px}
