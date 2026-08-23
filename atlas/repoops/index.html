@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RepoOps Architecture — Baranes Atlas</title>
+  <meta name="description" content="Interactive public target-architecture model of RepoOps: SDD lifecycle, bounded candidates, governed repository adoption, evidence and execution primitives.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="./repoops-public.css">
+</head>
+<body data-atlas-mode="view">
+<header class="topbar public-topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a>
+    <nav class="nav">
+      <a data-nav href="../../">Home</a>
+      <a data-nav href="../../repoops/">RepoOps</a>
+      <a data-nav href="../../open-source/">Open source</a>
+      <a data-nav href="../">Atlas</a>
+    </nav>
+  </div>
+</header>
+<main class="atlas-page">
+  <section class="atlas-public-intro">
+    <div>
+      <div class="atlas-crumb"><a href="../">Baranes Atlas</a><span>/</span><span>RepoOps Architecture</span></div>
+      <div class="atlas-title-row"><h1>RepoOps Architecture</h1><span class="public-status target">TARGET ARCHITECTURE</span></div>
+      <p>This interactive cognitive model explains the intended path from feature intent and SDD state to a bounded engineering candidate, governed repository adoption, verification and archive. It is technical depth — not a claim that every component shown is deployed today.</p>
+    </div>
+    <div class="atlas-public-actions">
+      <a class="btn secondary compact" href="../../repoops/">← Back to RepoOps</a>
+      <a class="btn secondary compact" href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework ↗</a>
+    </div>
+  </section>
+  <section class="status-legend" aria-label="Public status legend">
+    <div><span class="status-dot now"></span><b>Exists now</b><span>interactive public Atlas + implemented RepoOps mechanisms; not a unified deployed product</span></div>
+    <div><span class="status-dot oss"></span><b>Open source</b><span>SDD Framework lifecycle and contracts</span></div>
+    <div><span class="status-dot target"></span><b>Target architecture</b><span>the end-to-end RepoOps model below</span></div>
+  </section>
+  <section class="atlas-workspace">
+    <header class="atlas-toolbar">
+      <div>
+        <div class="atlas-kicker">BARANES / ATLAS</div>
+        <div class="atlas-toolbar-title">RepoOps · lifecycle ↔ artifacts ↔ governed execution</div>
+      </div>
+      <div class="atlas-controls">
+        <span class="atlas-mode-group"><button id="mode-view" type="button">View</button><button id="mode-design" type="button">Design</button></span>
+        <button id="save-layout" type="button">Save layout</button>
+        <button id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in">+</button><button id="fit" type="button">Fit</button>
+      </div>
+    </header>
+    <div class="atlas-canvas-wrap">
+      <svg id="repoops-atlas" viewBox="-168.83 89.02 2171.23 1016.83" aria-label="RepoOps public target architecture">
+        <defs>
+          <marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+          <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+          <marker id="a-artifact" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+          <marker id="a-engine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker>
+          <marker id="a-git" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+          <marker id="a-return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f472b6"/></marker>
+          <filter id="atlas-shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".28"/></filter>
+        </defs>
+        <g id="zones"></g>
+        <g id="edges"></g>
+        <g id="nodes"></g>
+        <g id="primitives"></g>
+        <g id="labels"></g>
+        <g id="handles"></g>
+        <g id="identity"></g>
+      </svg>
+      <div id="atlas-status" class="atlas-status">View · select a node · drag background to pan · use +/− to zoom</div>
+      <aside id="atlas-card" class="atlas-card" aria-live="polite"></aside>
+    </div>
+  </section>
+  <section class="atlas-disclosure-note">
+    <b>Public Atlas scope.</b> This view is deliberately scoped to product architecture and effect boundaries; low-value implementation detail is omitted. Execution roles are retained only where they explain the product model. SDD contracts are separately inspectable in the open-source framework.
+  </section>
+</main>
+<script src="../../assets/site.js"></script>
+<script src="./repoops-public.js"></script>
+</body>
+</html>
