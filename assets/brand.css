@@ -32,50 +32,26 @@ body:before{
 .eyebrow,.kicker{color:var(--brand-teal-bright)}
 .card a{color:var(--brand-teal-bright)}
 .principle{border-left-color:var(--brand-teal)}
-.hero>div:first-child:before{
-  content:"";
-  display:block;
-  width:74px;
-  height:74px;
-  margin:0 0 18px;
-  background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
-  filter:drop-shadow(0 12px 28px rgba(21,154,140,.14));
+
+/* The topbar owns the brand mark. Keep page intros compact and content-first. */
+.hero{padding-top:44px}
+.page-hero{padding-top:40px}
+.hero>div:first-child:before,
+.page-hero:before,
+.atlas-public-intro>div:first-child:before,
+.atlas-toolbar>div:first-child:before{
+  content:none!important;
+  display:none!important;
 }
-.page-hero:before{
-  content:"";
-  display:block;
-  width:54px;
-  height:54px;
-  margin-bottom:17px;
-  background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
-  filter:drop-shadow(0 10px 24px rgba(21,154,140,.13));
-}
+.atlas-public-intro{padding-top:18px!important}
+.atlas-toolbar>div:first-child{position:relative;padding-left:0!important}
+
 .footer-inner>span:first-child{display:flex;align-items:center;gap:8px;color:#9eb0c2}
 .footer-inner>span:first-child:before{
   content:"";
   width:22px;
   height:22px;
   flex:0 0 22px;
-  background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
-}
-.atlas-public-intro>div:first-child:before{
-  content:"";
-  display:block;
-  width:50px;
-  height:50px;
-  margin-bottom:13px;
-  background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
-  filter:drop-shadow(0 10px 24px rgba(21,154,140,.14));
-}
-.atlas-toolbar>div:first-child{position:relative;padding-left:34px}
-.atlas-toolbar>div:first-child:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:50%;
-  width:25px;
-  height:25px;
-  transform:translateY(-50%);
   background:url('./baranes-symbol-teal.svg') center/contain no-repeat;
 }
 .atlas-kicker{color:var(--brand-teal-bright)!important}
@@ -87,6 +63,7 @@ body:before{
 @media(max-width:900px){
   .topbar-inner{height:auto}
   .brand-mark{width:38px;height:38px}
-  .hero>div:first-child:before{width:62px;height:62px;margin-bottom:15px}
-  .page-hero:before{width:48px;height:48px}
+  .hero{padding-top:32px}
+  .page-hero{padding-top:30px}
+  .atlas-public-intro{padding-top:16px!important}
 }
