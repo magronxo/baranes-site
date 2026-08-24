@@ -46,6 +46,36 @@ body:before{
 .atlas-public-intro{padding-top:18px!important}
 .atlas-toolbar>div:first-child{position:relative;padding-left:0!important}
 
+/* Home: use the upper-right space for the headline, then let the evidence panel begin below it. */
+@media(min-width:901px){
+  .hero{
+    padding-top:32px;
+    grid-template-columns:minmax(0,1fr) minmax(180px,.52fr) minmax(300px,.48fr);
+    grid-template-areas:
+      "eyebrow eyebrow ."
+      "title title ."
+      "lede panel panel"
+      "copy panel panel"
+      "cta panel panel";
+    column-gap:34px;
+    row-gap:0;
+    align-items:start;
+  }
+  .hero>div:first-child{display:contents}
+  .hero .eyebrow{grid-area:eyebrow;margin-bottom:8px}
+  .hero h1{
+    grid-area:title;
+    max-width:930px;
+    margin:0 0 26px;
+    font-size:clamp(52px,5.8vw,84px);
+    line-height:.93;
+  }
+  .hero .lede{grid-area:lede}
+  .hero .hero-copy{grid-area:copy}
+  .hero .cta-row{grid-area:cta}
+  .hero-panel{grid-area:panel;margin-top:34px}
+}
+
 .footer-inner>span:first-child{display:flex;align-items:center;gap:8px;color:#9eb0c2}
 .footer-inner>span:first-child:before{
   content:"";
