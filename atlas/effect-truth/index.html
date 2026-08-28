@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Who Owns Effect Truth? — Baranes</title><meta name="description" content="Baranes places authoritative effect determination with the affected semantic domain without requiring one global truth service or one service per domain."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/effect-truth/"><meta property="og:title" content="Who Owns Effect Truth? — Baranes"><meta property="og:description" content="Baranes places authoritative effect determination with the affected semantic domain without requiring one global truth service or one service per domain."><meta property="og:type" content="article"><meta property="og:url" content="https://magronxo.github.io/baranes-site/atlas/effect-truth/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Who Owns Effect Truth? — Baranes"><meta name="twitter:description" content="Baranes places authoritative effect determination with the affected semantic domain without requiring one global truth service or one service per domain."><link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/brand.css"></head><body><header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../../">Home</a><a data-nav href="../../repoops/">RepoOps</a><a data-nav href="../../open-source/">Open source</a><a data-nav href="../../atlas/">Atlas</a></nav></div></header><main>
+<article class="fascicle-page">
+  <section class="shell fascicle-hero">
+    <div class="fascicle-breadcrumb"><a href="../">Baranes Atlas</a><span>/</span><span>Authority boundaries</span><span>/</span><span>02</span></div>
+    <div class="eyebrow">Authority boundaries · 02</div>
+    <h1>Who Owns Effect Truth?</h1>
+    <p class="fascicle-deck">The mechanism that performs an action is not automatically the authority that determines what that action means in the durable state it affected.</p>
+    <div class="concept-equation concept-equation-stack"><span>AFFECTED SEMANTIC DOMAIN</span><strong>=</strong><span>OWNER OF AUTHORITATIVE EFFECT DETERMINATION</span></div>
+    <div class="authority-diagram diagram-domain" aria-label="Executor evidence and observations support the affected semantic domain, with canonical acceptance separate">
+      <div class="authority-inputs"><div class="authority-node claim"><span>Executor</span><b>claim</b></div><div class="authority-node evidence"><span>Evidence</span><b>support</b></div><div class="authority-node evidence"><span>Observation</span><b>support</b></div></div>
+      <div class="authority-edge vertical"><span>inputs</span><b>↓</b></div>
+      <div class="authority-node authority wide"><span>Affected semantic domain</span><b>authoritative effect truth</b><small>decision-right boundary</small></div>
+      <div class="authority-edge vertical separate"><span>selected fact, if applicable</span><b>↓</b></div>
+      <div class="authority-node acceptance wide"><span>Canonical acceptance</span><b>separate governed responsibility</b></div>
+    </div>
+    <p class="fascicle-takeaway">Effect truth belongs to the semantics of the state that changed — not automatically to the component that executed, stored or displayed the action.</p>
+  </section>
+
+  <section class="section fascicle-read"><div class="shell fascicle-copy">
+    <div class="section-head"><div class="kicker">Semantic ownership</div><h2>Authority is a decision right, not a physical location.</h2></div>
+    <p>If the executor does not automatically own effect truth, who does?</p>
+    <p>Baranes answers with <strong>semantic ownership</strong>: the domain whose durable or external state was affected owns the authoritative determination under the evidence rules that apply to that effect.</p>
+    <p>The key word is <em>semantic</em>.</p>
+
+    <h3>Authority is not physical location</h3>
+    <p>Systems place data wherever it is operationally convenient. A worker writes a status row. A queue records delivery. A database records <code>COMMITTED</code>. A dashboard shows a green indicator. A Ledger may later accept a selected record.</p>
+    <p>Those mechanisms may be important, but storing or displaying information does not automatically grant authority over the proposition it describes.</p>
+    <div class="concept-stack two"><code>RESPONSIBILITY != MODULE</code><code>REPOSITORY != SEMANTIC OWNER</code></div>
+    <p>A logical responsibility does not imply one dedicated service. And a repository or data store does not own every semantic fact it happens to contain.</p>
+
+    <h3>What defines the affected domain</h3>
+    <p>The domain is defined by <strong>what durable or external state the action intended to change and what rules make that state meaningful</strong>.</p>
+    <p>Repository effects can depend on repository identity, branch or object state and concurrency conditions. A publication effect can depend on what artifact is externally visible. A host effect can depend on live host state and its own observation rules.</p>
+    <p>The same shell, API client or SDK could participate in several kinds of action. Reusing an execution mechanism does not merge the semantics of those effects.</p>
+
+    <h3>Why Baranes does not need one global truth oracle</h3>
+    <p>There are two ways to pursue consistency. One is to centralize every domain’s semantics in one mechanism and ask it to decide everything. The other is to make authority placement consistent: each proposition has a clear owner, relevant evidence reaches that owner, and neighboring mechanisms cannot silently acquire its decision right.</p>
+    <p>Baranes uses the second model at the logical-architecture level.</p>
+
+    <div class="misconception"><div class="kicker">Common misconception</div><h3>“Does every domain need its own microservice?”</h3><p>No. Semantic ownership is a decision-right boundary, not a service-count prescription. One process may realize several responsibilities; one responsibility may later be realized across several mechanisms.</p></div>
+
+    <h3>Boundary / limit</h3>
+    <p>This is a <strong>logical architecture</strong> claim. It does not prove that Baranes is currently physically implemented across multiple effect domains, and it does not freeze a physical service topology.</p>
+  </div></section>
+
+  <section class="section"><div class="shell fascicle-copy">
+    <details class="technical-expander"><summary>Technical note</summary><div class="technical-body">
+      <p>Neighboring responsibilities remain separate:</p>
+      <div class="concept-stack"><code>EFFECT SEMANTIC DOMAIN != EXECUTOR</code><code>EFFECT SEMANTIC DOMAIN != EVIDENCE</code><code>EFFECT SEMANTIC DOMAIN != OBSERVATION</code><code>EFFECT SEMANTIC DOMAIN != CANONICAL ACCEPTANCE</code></div>
+      <p>The executor reports its execution. Evidence and observations support a determination. The affected semantic domain owns effect truth. A separate accepting authority may later admit a selected fact as canonical.</p>
+      <p>Determining <strong>what effect exists</strong> and deciding <strong>what recovery or retry is legitimate</strong> are also related but distinct responsibilities.</p>
+      <p><strong>Maturity:</strong> canonical logical architecture. The responsibility graph is defined; the number of services, databases, runtimes or repositories that realize it is not frozen here.</p>
+      <p><strong>Bounded example:</strong> RepoOps may illustrate repository-domain effect semantics, but it does not become the generic Baranes truth layer and its Git/filesystem/process mechanics must not be generalized to every domain.</p>
+    </div></details>
+    <nav class="fascicle-nav three" aria-label="Authority boundaries series"><a href="../done-vs-true/">← Previous: Done Is Not the Same as True</a><a href="../">Atlas</a><a href="../evidence-and-truth/">Next: What Evidence Can — and Cannot — Prove →</a></nav>
+  </div></section>
+</article></main><footer class="footer"><div class="shell footer-inner"><span>BARANES · Authority boundaries</span><span><a href="../../atlas/">Architecture Atlas</a> · <a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework</a></span></div></footer><script src="../../assets/site.js"></script></body></html>

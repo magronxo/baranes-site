@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What Evidence Can — and Cannot — Prove — Baranes</title><meta name="description" content="Hashes, signatures, provenance and attestations can strengthen evidence without becoming semantic truth authority or canonical acceptance."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/evidence-and-truth/"><meta property="og:title" content="What Evidence Can — and Cannot — Prove — Baranes"><meta property="og:description" content="Hashes, signatures, provenance and attestations can strengthen evidence without becoming semantic truth authority or canonical acceptance."><meta property="og:type" content="article"><meta property="og:url" content="https://magronxo.github.io/baranes-site/atlas/evidence-and-truth/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="What Evidence Can — and Cannot — Prove — Baranes"><meta name="twitter:description" content="Hashes, signatures, provenance and attestations can strengthen evidence without becoming semantic truth authority or canonical acceptance."><link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/brand.css"></head><body><header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../../">Home</a><a data-nav href="../../repoops/">RepoOps</a><a data-nav href="../../open-source/">Open source</a><a data-nav href="../../atlas/">Atlas</a></nav></div></header><main>
+<article class="fascicle-page">
+  <section class="shell fascicle-hero">
+    <div class="fascicle-breadcrumb"><a href="../">Baranes Atlas</a><span>/</span><span>Authority boundaries</span><span>/</span><span>03</span></div>
+    <div class="eyebrow">Authority boundaries · 03</div>
+    <h1>What Evidence Can — and Cannot — Prove</h1>
+    <p class="fascicle-deck">Hashes, signatures, provenance and attestations can make evidence stronger without turning the evidence layer into the owner of semantic truth.</p>
+    <div class="concept-stack hero-stack"><code>INTEGRITY VERIFIED != SEMANTIC TRUTH</code><code>EVIDENCE != TRUTH AUTHORITY</code><code>ATTESTATION != CANONICAL ACCEPTANCE</code></div>
+    <div class="authority-diagram diagram-evidence" aria-label="Evidence mechanisms establish bounded properties which semantic authority interprets, while canonical acceptance remains separate">
+      <div class="authority-inputs four"><div class="authority-node evidence"><span>Hash</span><b>bytes match</b></div><div class="authority-node evidence"><span>Signature</span><b>signing relation</b></div><div class="authority-node evidence"><span>Provenance</span><b>origin + history</b></div><div class="authority-node evidence"><span>Attestation</span><b>bounded observation</b></div></div>
+      <div class="authority-edge vertical"><span>establish bounded properties</span><b>↓</b></div>
+      <div class="authority-node evidence wide"><span>Bounded property verified</span><b>verifiable evidence</b></div>
+      <div class="authority-edge vertical"><span>interpreted by</span><b>↓</b></div>
+      <div class="authority-node authority wide"><span>Semantic authority</span><b>owns the proposition</b></div>
+      <div class="acceptance-aside"><span>Separate decision</span><div class="authority-node acceptance"><span>Canonical acceptance</span><b>not implied by verification</b></div></div>
+    </div>
+    <p class="fascicle-takeaway">Better evidence gives an authority better grounds for a decision. It does not inherit the authority to make every decision itself.</p>
+  </section>
+
+  <section class="section fascicle-read"><div class="shell fascicle-copy">
+    <div class="section-head"><div class="kicker">Verifiable ≠ semantically true</div><h2>Strong evidence proves bounded properties.</h2></div>
+    <p>Imagine a system receives a statement saying <strong>deployment succeeded</strong>. The statement has a valid signature. Its bytes match a digest. Its producer is known. Its provenance is traceable.</p>
+    <p>Those are valuable facts. They still do not automatically establish that the intended durable deployment effect is true.</p>
+
+    <h3>Different mechanisms answer different questions</h3>
+    <div class="evidence-grid"><div class="feature"><b>A digest</b><span>can show that compared bytes match an expected digest.</span></div><div class="feature"><b>A signature</b><span>can establish the signing relationship defined by the applicable key rules.</span></div><div class="feature"><b>Provenance</b><span>can show where material came from, which version was used and how it was transformed.</span></div><div class="feature"><b>An observation or attestation</b><span>can record that a named observer evaluated a proposition under a stated method and source path.</span></div></div>
+    <p>Each can be strong. None automatically becomes the semantic owner of every proposition described by the evidence.</p>
+
+    <h3>Why the boundary matters</h3>
+    <p>Evidence systems naturally accumulate convenience labels: <code>verified</code>, <code>passed</code>, <code>trusted</code>. If those labels are allowed to absorb meaning, integrity checks or verifier outputs can quietly become a generic truth oracle.</p>
+    <div class="concept-stack"><code>producer claim → remains a producer claim</code><code>observation → remains an observation</code><code>attestation → remains a bounded verification result</code><code>semantic fact → remains owned by the correct semantic authority</code></div>
+
+    <h3>Independence depends on the source path</h3>
+    <p>Passing an executor’s success claim through another component does not make it independent evidence if the second component reads only the same self-claim.</p>
+    <div class="mini-flow"><span>executor says “success”</span><b>↓</b><span>projection copies “success”</span><b>↓</b><span>verifier reads only that projection</span><b>↓</b><span>“success verified”</span></div>
+    <p>The label changed. The relevant source did not. A meaningful independent attestation needs a relevant source or observation path independent of the executor claim being evaluated.</p>
+
+    <div class="misconception"><div class="kicker">Common misconception</div><h3>“If the signature is valid, the claim is true.”</h3><p>No. A valid signature establishes the bounded property defined by the signature and key policy. A perfectly signed statement can still describe a semantic proposition that the affected domain must evaluate separately.</p></div>
+
+    <h3>Boundary / limit</h3>
+    <p>This page does not claim one final EvidenceEnvelope serialization, one universal evidence store, one universal attestation service or one fixed physical evidence topology.</p>
+  </div></section>
+
+  <section class="section"><div class="shell fascicle-copy">
+    <details class="technical-expander"><summary>Technical note: EvidenceEnvelope</summary><div class="technical-body">
+      <p>Baranes uses an <code>EvidenceEnvelope</code> concept to keep evidence context bound: subject and claim identity, source/version, producer or collector, time/order, references or digests, provenance, verification context, known gaps, sensitivity and correction/supersession context can travel together where useful.</p>
+      <p>The important rule is not the field list:</p>
+      <blockquote>Packaging or referencing a source does not transfer the source’s semantic authority to the envelope.</blockquote>
+      <p>The conceptual baseline is <strong>not</strong> a promise of one concrete API, storage format or serialization.</p>
+      <p>Independent attestation can be especially strong because its relevant source path is independent of the executor self-claim. It still supplies a bounded evidence result. The affected semantic domain retains effect-truth authority.</p>
+      <div class="concept-equation compact"><span>ATTESTATION</span><strong>!=</strong><span>CANONICAL FACT ACCEPTANCE</span></div>
+      <p><strong>Maturity:</strong> canonical logical architecture. Evidence/provenance authority boundaries are defined conceptually; final physical schema, provider and service topology remain separate decisions.</p>
+      <p><strong>Bounded example:</strong> RepoOps can illustrate structured evidence composition in a repository domain. That does not make its evidence mechanics a universal Baranes service, and it does not by itself prove production-independent attestation.</p>
+    </div></details>
+    <nav class="fascicle-nav" aria-label="Authority boundaries series"><a href="../effect-truth/">← Previous: Who Owns Effect Truth?</a><a href="../">Back to Baranes Atlas</a></nav>
+  </div></section>
+</article></main><footer class="footer"><div class="shell footer-inner"><span>BARANES · Authority boundaries</span><span><a href="../../atlas/">Architecture Atlas</a> · <a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework</a></span></div></footer><script src="../../assets/site.js"></script></body></html>

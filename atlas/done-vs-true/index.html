@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Done Is Not the Same as True — Baranes</title><meta name="description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><meta name="theme-color" content="#071018"><link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/done-vs-true/"><meta property="og:title" content="Done Is Not the Same as True — Baranes"><meta property="og:description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><meta property="og:type" content="article"><meta property="og:url" content="https://magronxo.github.io/baranes-site/atlas/done-vs-true/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Done Is Not the Same as True — Baranes"><meta name="twitter:description" content="A completed execution and the durable truth of its effect are not automatically the same proposition. See how Baranes keeps executor claims and effect truth distinct."><link rel="icon" type="image/svg+xml" href="../../assets/baranes-symbol-teal.svg"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/brand.css"></head><body><header class="topbar"><div class="shell topbar-inner"><a class="brand" href="../../"><span class="brand-mark">B</span><span>BARANES</span></a><nav class="nav"><a data-nav href="../../">Home</a><a data-nav href="../../repoops/">RepoOps</a><a data-nav href="../../open-source/">Open source</a><a data-nav href="../../atlas/">Atlas</a></nav></div></header><main>
+<article class="fascicle-page">
+  <section class="shell fascicle-hero">
+    <div class="fascicle-breadcrumb"><a href="../">Baranes Atlas</a><span>/</span><span>Authority boundaries</span><span>/</span><span>01</span></div>
+    <div class="eyebrow">Authority boundaries · 01</div>
+    <h1>Done Is Not the Same as True</h1>
+    <p class="fascicle-deck">A worker can correctly report that it finished an action. That still does not automatically settle what is now true in the system it tried to change.</p>
+    <div class="concept-equation"><span>EXECUTION RESULT</span><strong>!=</strong><span>AUTHORITATIVE EFFECT TRUTH</span></div>
+    <div class="authority-diagram diagram-linear" aria-label="Executor claim and evidence flow to the affected domain">
+      <div class="authority-node claim"><span>Executor</span><b>I ran it.</b><small>acceptance · execution · direct observations</small></div>
+      <div class="authority-edge"><span>claim + evidence</span><b>→</b></div>
+      <div class="authority-node authority"><span>Affected domain</span><b>What is authoritatively true?</b><small>applies the evidence rule for this effect</small></div>
+    </div>
+    <p class="fascicle-takeaway">“Completed” describes an execution. “True” describes the affected durable or external state.</p>
+  </section>
+
+  <section class="section fascicle-read"><div class="shell fascicle-copy">
+    <div class="section-head"><div class="kicker">The distinction</div><h2>A system says “completed”. The next question is different.</h2></div>
+    <p>The natural question is: <strong>so the change happened?</strong></p>
+    <p>Maybe. But that is a second proposition.</p>
+    <p>An executor can be completely accurate about its own work: it accepted an authorized attempt, ran a process or provider call, observed output and returned a result. Those are meaningful facts. They do not automatically settle every durable fact in the system that action was trying to change.</p>
+
+    <h3>What the executor can say authoritatively</h3>
+    <ul class="fascicle-list">
+      <li>Did I accept this attempt?</li><li>What did I run?</li><li>Did my process complete, fail, time out or get cancelled?</li><li>What output or direct observation did I produce?</li><li>What result claim did I return?</li>
+    </ul>
+    <p>Baranes keeps those facts precise instead of flattening them into a generic “untrusted result”.</p>
+
+    <h3>Why the distinction matters</h3>
+    <p>Execution outcome and effect state can diverge. A process can finish successfully while a concurrent change alters the final durable state. A process can fail after creating part — or all — of the intended effect. A timeout can happen after an external system has already accepted a mutation. A result can be lost even though the effect exists.</p>
+    <div class="concept-stack"><code>PROCESS SUCCESS != AUTOMATIC EFFECT SUCCESS</code><code>PROCESS FAILURE != AUTOMATIC NO EFFECT</code><code>TIMEOUT != AUTOMATIC NO EFFECT</code><code>MISSING RESULT != RETRY PERMISSION</code></div>
+
+    <div class="misconception"><div class="kicker">Common misconception</div><h3>“So Baranes does not trust executors?”</h3><p>No. This is not an adversarial assumption. The executor remains authoritative for its own acceptance, execution and direct observations. The boundary appears only when the proposition belongs to another semantic authority.</p></div>
+
+    <h3>Practical significance</h3>
+    <p>The distinction prevents operational convenience from erasing uncertainty. A missing or failed result cannot simply be relabeled as “nothing happened” if that conclusion is not established. That matters especially before a retry or another action could duplicate an external effect.</p>
+    <p>Baranes also does <strong>not</strong> require every successful execution to be checked by a universal independent verifier. The affected domain applies the evidence rule appropriate to that effect; in some cases the executor’s evidence may already be sufficient.</p>
+  </div></section>
+
+  <section class="section"><div class="shell fascicle-copy">
+    <details class="technical-expander"><summary>Technical note</summary><div class="technical-body">
+      <p>The logical architecture keeps executor-side result authority separate from domain effect-truth authority:</p>
+      <div class="concept-equation compact"><span>EXECUTOR CLAIM</span><strong>!=</strong><span>DOMAIN EFFECT TRUTH</span></div>
+      <p>The executor can produce a precise result claim and strong direct observations. Those become evidence for the authority that owns the affected effect semantics.</p>
+      <p><strong>Maturity:</strong> canonical logical architecture. This distinction does not freeze one physical executor, verifier or service topology.</p>
+      <p><strong>Bounded example:</strong> RepoOps can illustrate the boundary in repository work. Git/process observations can be useful executor evidence while repository-specific final-state semantics remain a separate proposition. Git-specific mechanics are not a universal Baranes topology.</p>
+    </div></details>
+    <nav class="fascicle-nav" aria-label="Authority boundaries series"><a href="../">← Baranes Atlas</a><a href="../effect-truth/">Next: Who Owns Effect Truth? →</a></nav>
+  </div></section>
+</article></main><footer class="footer"><div class="shell footer-inner"><span>BARANES · Authority boundaries</span><span><a href="../../atlas/">Architecture Atlas</a> · <a href="https://github.com/CollSalvia-Org/sdd-framework">SDD Framework</a></span></div></footer><script src="../../assets/site.js"></script></body></html>
