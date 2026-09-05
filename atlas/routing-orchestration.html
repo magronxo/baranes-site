@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Routing & Orchestration — Baranes Atlas</title>
+  <meta name="description" content="Interactive Baranes Atlas view of authority, routing, orchestration, execution and evidence boundaries.">
+  <meta name="theme-color" content="#071018">
+  <link rel="canonical" href="https://magronxo.github.io/baranes-site/atlas/routing-orchestration.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/baranes-symbol-teal.svg">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/brand.css">
+  <link rel="stylesheet" href="./routing-orchestration.css">
+</head>
+<body data-routing-mode="view">
+<header class="topbar public-topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="../"><span class="brand-mark">B</span><span>BARANES</span></a>
+    <nav class="nav">
+      <a href="../">Home</a>
+      <a href="../repoops/">RepoOps</a>
+      <a href="../open-source/">Open source</a>
+      <a class="active" href="./">Atlas</a>
+    </nav>
+  </div>
+</header>
+<main class="routing-page">
+  <section class="routing-workspace">
+    <header class="routing-toolbar">
+      <div class="routing-heading">
+        <div class="routing-kicker"><a href="./">BARANES / ATLAS</a></div>
+        <div class="routing-title-row"><h1>Routing &amp; Orchestration</h1><span class="routing-status-pill">WORKING MODEL</span></div>
+        <p>Authority, routing, orchestration, bounded execution and effect/evidence boundaries. Candidate actors remain explicitly non-canonical.</p>
+      </div>
+      <div class="routing-actions">
+        <div class="routing-mode-group" aria-label="Interaction mode"><button id="mode-view" type="button">View</button><button id="mode-design" type="button">Design</button></div>
+        <button id="save-layout" type="button">Save layout</button><button id="reset-layout" type="button">Reset</button>
+        <button id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in">+</button><button id="fit" type="button">Fit</button>
+      </div>
+      <div class="routing-filters" aria-label="Layer filters">
+        <span>Layers</span><button class="active" data-plane="all" type="button">All</button><button data-plane="authority" type="button">Authority</button><button data-plane="routing" type="button">Routing</button><button data-plane="orchestration" type="button">Orchestration</button><button data-plane="execution" type="button">Execution / Evidence</button>
+      </div>
+    </header>
+    <div class="routing-canvas-wrap">
+      <svg id="routing-atlas" viewBox="0 0 1620 930" aria-label="Routing and orchestration architecture">
+        <defs>
+          <marker id="arrow-authority" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <marker id="arrow-routing" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <marker id="arrow-orchestration" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <marker id="arrow-execution" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <marker id="arrow-candidate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z"/></marker>
+          <filter id="routing-shadow" x="-25%" y="-35%" width="150%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".28"/></filter>
+        </defs>
+        <g id="planes"></g><g id="edges"></g><g id="edge-labels"></g><g id="nodes"></g><g id="edge-handles"></g>
+      </svg>
+      <div id="routing-status" class="routing-status">View · select a node · drag background to pan · wheel or +/− to zoom</div>
+      <aside id="routing-card" class="routing-card" aria-live="polite"></aside>
+    </div>
+  </section>
+  <section class="routing-disclosure"><b>Model boundary.</b> This view explains system responsibilities and authority boundaries. It does not assert that candidate actors are canonical, that execution owns domain truth, or that evidence is itself a truth authority.</section>
+</main>
+<script src="../assets/site.js"></script>
+<script src="./routing-orchestration.js"></script>
+</body>
+</html>
