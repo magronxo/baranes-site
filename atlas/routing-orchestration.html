@@ -62,5 +62,31 @@
 </main>
 <script src="../assets/site.js"></script>
 <script src="./routing-orchestration.js"></script>
+<script>
+(() => {
+  const offsets = new Map([
+    ["product intent / decisions", [0, 58]],
+    ["incoming work", [0, 58]],
+    ["technical direction", [0, -42]],
+    ["inspection / model", [0, 30]],
+    ["research / signal", [0, -18]],
+    ["possible operational binding", [0, -34]],
+    ["candidate delegation", [0, -68]],
+    ["bounded execution", [0, -18]],
+    ["bounded repo effect", [0, 18]]
+  ]);
+  const layer = document.getElementById("edge-labels");
+  if (!layer) return;
+  const apply = () => {
+    for (const group of layer.querySelectorAll(".edge-label-group")) {
+      const label = group.querySelector(".edge-label")?.textContent?.trim();
+      const [dx, dy] = offsets.get(label) || [0, 0];
+      group.setAttribute("transform", `translate(${dx} ${dy})`);
+    }
+  };
+  new MutationObserver(apply).observe(layer, { childList: true });
+  apply();
+})();
+</script>
 </body>
 </html>
